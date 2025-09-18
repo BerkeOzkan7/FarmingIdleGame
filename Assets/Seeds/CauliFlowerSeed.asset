@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: CauliFlowerSeed
+  m_EditorClassIdentifier: Assembly-CSharp::SeedData
+  seedName: CauliFlowerSeed
+  buySeedDescription: Buy Cauliflower Seed
+  sellCropDescription: Sell Cauliflower
+  icon: {fileID: -3358482244611400503, guid: 18c05a965ae6ad847a373c4120c0f779, type: 3}
+  cost: 3
+  growTime: 30
+  cropName: CauliFlower
+  sellPrice: 5
+  plantPrefab: {fileID: 7205354100785179918, guid: 915bfc05a87e7be42bd348baae92d067, type: 3}
