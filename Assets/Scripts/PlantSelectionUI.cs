@@ -5,9 +5,9 @@ public class PlantSelectionUI : MonoBehaviour
     public static PlantSelectionUI Instance;
 
     [SerializeField] private Canvas rootCanvas;
-    [SerializeField] private GameObject panelPrefab;       // the container (background panel)
-    [SerializeField] private SeedButtonUI seedButtonPrefab; // your button prefab
-    [SerializeField] private SeedData[] availableSeeds;     // assign CornSeed, TomatoSeed, etc.
+    [SerializeField] private GameObject panelPrefab;       
+    [SerializeField] private SeedButtonUI seedButtonPrefab; 
+    [SerializeField] private SeedData[] availableSeeds;    
 
     private GameObject currentPanel;
     private Plot currentPlot;

@@ -9,7 +9,7 @@ public class Plot : MonoBehaviour
     public GrowthManager growthManager;
 
     [Header("Unlock Settings")]
-    public GameObject lockedOverlay; // drag your table/lock image here
+    public GameObject lockedOverlay; 
     public TMP_Text requiredCropsText;
     public string requiredItem = "Corn";
     public int requiredAmount = 1;
@@ -23,7 +23,7 @@ public class Plot : MonoBehaviour
         foreach (Button btn in childButtons)
         {
             btn.onClick.RemoveAllListeners();
-            btn.onClick.AddListener(OnClickPlot); //  assign THIS plot’s function
+            btn.onClick.AddListener(OnClickPlot); 
 
         }
         requiredCropsText.text = $" x{requiredAmount} {requiredItem} to unlock";

@@ -9,9 +9,9 @@ public class SeedData : ScriptableObject
     public string sellCropDescription; 
     public Sprite icon;
     public int cost;
-    public float growTime;   // optional
-    public string cropName;  // the plant it produces
-    public int sellPrice; // optional, if you want to sell the crop
+    public float growTime;   
+    public string cropName;  
+    public int sellPrice; 
     public GameObject plantPrefab;
 }
 public class SeedShop : MonoBehaviour

@@ -4,13 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "Farming/SellShop")]
 
-public class CropData : ScriptableObject
-{
-    public string cropName;
-    public Sprite icon;
-    public int sellPrice;
-    // Add other properties as needed
-}
+
 public class SellShop : MonoBehaviour
 {
     public CropData[] availableCrops;       // assign in inspector
