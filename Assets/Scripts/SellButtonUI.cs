@@ -1,4 +1,4 @@
-using TMPro;
+/*using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,10 +7,11 @@ public class CropData : ScriptableObject
     public string cropName;
     public Sprite icon;
     public int sellPrice;
-    
+
 }
 public class SellButtonUI : MonoBehaviour
 {
+
     public Image iconImage;
     public TMP_Text nameText;
     public TMP_Text priceText;
@@ -41,4 +42,6 @@ public class SellButtonUI : MonoBehaviour
             Debug.Log($"No {cropData.cropName} to sell!");
         }
     }
-}
+
+
+}*/

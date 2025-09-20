@@ -13,11 +13,11 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
 
     [Header("Inventory UI")]
-    public Transform seedsPanel;      // assign in inspector
-    public Transform plantsPanel;     // assign in inspector
-    public InventoryItemUI itemPrefab; // assign your prefab
+    public Transform seedsPanel;      
+    public Transform plantsPanel;     
+    public InventoryItemUI itemPrefab; 
     
-    public List<Page> pages; // assign in inspector
+    public List<Page> pages; 
     private Dictionary<string, Page> pageLookup = new();
 
     private Dictionary<string, InventoryItemUI> activeItems = new();
