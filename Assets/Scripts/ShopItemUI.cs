@@ -14,25 +14,52 @@ public class ShopItemUI : MonoBehaviour
     public TMP_Text sellCropPriceText;
     public Button buyButton;
     public Button sellButton;
-
+    public static ShopItemUI Instance;
     private SeedData seed;
 
-    
+
     public void Setup(SeedData seedData)
     {
+
+        int amount = SellBuyAmountManager.Instance.CurrentAmount;
         seed = seedData;
         icon.sprite = seed.icon;
         buySeedDescription.text = seed.buySeedDescription;
-        buySeedCostText.text = seed.cost.ToString() + " gold";
+        buySeedCostText.text = (seed.cost * amount).ToString() + " gold";
 
         sellCropDescription.text = seed.sellCropDescription;
-        sellCropPriceText.text = seed.sellPrice.ToString() + " gold";
+        sellCropPriceText.text = (seed.sellPrice * amount).ToString() + " gold";
 
         buyButton.onClick.RemoveAllListeners();
         buyButton.onClick.AddListener(BuySeed);
 
         sellButton.onClick.RemoveAllListeners();
         sellButton.onClick.AddListener(sellCrop);   
+    }
+
+    private void Update()
+    {
+        UpdatePrices();
+    }
+
+    public void UpdatePrices()
+    {
+        
+        int amount = SellBuyAmountManager.Instance.CurrentAmount;
+        if(amount == -1)
+        {
+            int maxAffordable = CurrencyManager.Instance.GetGold() / seed.cost;     
+            buySeedCostText.text = (seed.cost * maxAffordable).ToString() + " gold";
+            int seedCount = ItemManager.Instance.GetCount(seed.cropName);
+            sellCropPriceText.text = (seed.sellPrice * seedCount).ToString() + " gold";
+
+        }
+        else
+        {
+            buySeedCostText.text = (seed.cost * amount).ToString() + " gold";
+            sellCropPriceText.text = (seed.sellPrice * amount).ToString() + " gold";
+        }
+
     }
 
     private void BuySeed()

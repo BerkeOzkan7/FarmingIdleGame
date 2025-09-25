@@ -4,19 +4,25 @@ using UnityEngine.UI;
 public class GrowthManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI timerText;
-    public PlantData plantData;       // assign in Inspector
-    public Image plantImage;          // UI Image for sprite (or SpriteRenderer if 2D world)
+    public PlantData plantData;       
+    public Image plantImage;          
 
     private bool isGrowing = false;
     private float growthTimer = 0f;
     private int currentPhase = 0;
     private Plot parentPlot;
+    public SeedData seedData;
 
 
     private void Start()
     {
         plantImage.sprite = plantData.growthSprites[0];
         parentPlot = GetComponentInParent<Plot>(); 
+    }
+
+    public void Init(SeedData seed)
+    {
+        seedData = seed;
     }
     void Update()
     {
@@ -79,19 +85,24 @@ public class GrowthManager : MonoBehaviour
     {
         return currentPhase == plantData.growthSprites.Length - 1;
     }
-    
+
     public void Harvest()
     {
         if (IsFullyGrown())
         {
-            Debug.Log($"{plantData.plantName} harvested!");
-            // TODO: Add coins to player here
-            ItemManager.Instance.AddItem(plantData.plantName, 1);
+            int baseAmount = 1;
+
+            // Safe check in case seedData is null
+            int bonus = (seedData != null) ? UpgradeManager.Instance.GetExtraYield(seedData) : 0;
+            int total = baseAmount + bonus;
+
+            Debug.Log($"{seedData.seedName} harvested! Yield = {total}");
+
+            // Add to inventory using SeedData item name
+            ItemManager.Instance.AddItem(seedData.cropName, total);
 
             parentPlot.ClearPlot();
             Destroy(gameObject);
-            
-
         }
     }
 }

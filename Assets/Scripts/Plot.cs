@@ -13,6 +13,7 @@ public class Plot : MonoBehaviour
     public TMP_Text requiredCropsText;
     public string requiredItem = "Corn";
     public int requiredAmount = 1;
+    public SeedData lastPlantedSeed;
 
 
     private void Awake()
@@ -56,6 +57,8 @@ public class Plot : MonoBehaviour
         growthManager = newPlant;
         hasPlant = true;
 
+        newPlant.Init(seed);
+
         // position reset (UI scaling stuff)
         RectTransform rt = newPlant.GetComponent<RectTransform>();
         if (rt != null)
@@ -67,6 +70,8 @@ public class Plot : MonoBehaviour
         growthManager.StartGrowth();
 
         Debug.Log($"Planted {seed.seedName}!");
+        lastPlantedSeed = seed;
+
     }
 
     public void OnClickPlot()

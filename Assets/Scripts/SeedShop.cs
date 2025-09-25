@@ -16,9 +16,9 @@ public class SeedData : ScriptableObject
 }
 public class SeedShop : MonoBehaviour
 {
-    public SeedData[] availableSeeds;        // drag ScriptableObjects here
-    public GameObject shopItemPrefab;        // assign your ShopItemUI prefab
-    public Transform contentParent;          // assign BuySeedPage/Content
+    public SeedData[] availableSeeds;        
+    public GameObject shopItemPrefab;       
+    public Transform contentParent;          
 
     private void Start()
     {

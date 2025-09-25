@@ -19,5 +19,5 @@ MonoBehaviour:
   cost: 1
   growTime: 10
   cropName: Corn
-  sellPrice: 2
+  sellPrice: 50
   plantPrefab: {fileID: 6094300782498725139, guid: 69892f7e4a316ad43af4fb01f8ae8829, type: 3}

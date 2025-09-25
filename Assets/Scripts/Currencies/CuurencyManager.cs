@@ -8,7 +8,7 @@ public class CurrencyManager : MonoBehaviour
     private int gold = 0;
 
     [Header("UI Reference")]
-    public TextMeshProUGUI goldText;  // drag your UI text here in inspector
+    public TextMeshProUGUI goldText;  
 
     private void Awake()
     {
