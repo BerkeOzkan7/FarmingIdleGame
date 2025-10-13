@@ -11,8 +11,11 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
   m_Name: TomatoYield
-  m_EditorClassIdentifier: Assembly-CSharp::YieldUpgradeData
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
+  type: 0
   seed: {fileID: 11400000, guid: e3bab247c32c5944e97a61861e206382, type: 2}
   baseCost: 10
   costMultiplier: 1.5
-  yieldPerLevel: 1
+  yieldPerLevel: 0
+  speedPerLevel: 0
+  sellPricePerLevel: 0

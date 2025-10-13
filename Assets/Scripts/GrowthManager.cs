@@ -93,7 +93,7 @@ public class GrowthManager : MonoBehaviour
             int baseAmount = 1;
 
             // Safe check in case seedData is null
-            int bonus = (seedData != null) ? UpgradeManager.Instance.GetExtraYield(seedData) : 0;
+            int bonus = (seedData != null) ? Mathf.RoundToInt(UpgradeManager.Instance.GetBonusValue(seedData, UpgradeType.Yield)) : 0;
             int total = baseAmount + bonus;
 
             Debug.Log($"{seedData.seedName} harvested! Yield = {total}");

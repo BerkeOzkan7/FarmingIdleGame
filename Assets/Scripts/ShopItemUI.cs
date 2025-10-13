@@ -21,7 +21,7 @@ public class ShopItemUI : MonoBehaviour
     public void Setup(SeedData seedData)
     {
 
-        int amount = SellBuyAmountManager.Instance.CurrentAmount;
+        int amount = SellBuyAmountManager.CurrentAmount;
         seed = seedData;
         icon.sprite = seed.icon;
         buySeedDescription.text = seed.buySeedDescription;
@@ -45,7 +45,7 @@ public class ShopItemUI : MonoBehaviour
     public void UpdatePrices()
     {
         
-        int amount = SellBuyAmountManager.Instance.CurrentAmount;
+        int amount = SellBuyAmountManager.CurrentAmount;
         if(amount == -1)
         {
             int maxAffordable = CurrencyManager.Instance.GetGold() / seed.cost;     
@@ -65,7 +65,7 @@ public class ShopItemUI : MonoBehaviour
     private void BuySeed()
     {
 
-        int amount = SellBuyAmountManager.Instance.CurrentAmount;
+        int amount = SellBuyAmountManager.CurrentAmount;
 
         if (amount == -1)
         {
@@ -89,7 +89,7 @@ public class ShopItemUI : MonoBehaviour
     private void sellCrop()
     {
 
-        int amount = SellBuyAmountManager.Instance.CurrentAmount;
+        int amount = SellBuyAmountManager.CurrentAmount;
 
         if (amount == -1)
         {

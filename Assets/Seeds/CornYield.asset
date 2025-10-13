@@ -11,8 +11,11 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
   m_Name: CornYield
-  m_EditorClassIdentifier: Assembly-CSharp::YieldUpgradeData
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
+  type: 0
   seed: {fileID: 11400000, guid: e74632eb60797da4da4dc58d7bc7fd34, type: 2}
   baseCost: 10
   costMultiplier: 1.5
   yieldPerLevel: 1
+  speedPerLevel: 1
+  sellPricePerLevel: 1
