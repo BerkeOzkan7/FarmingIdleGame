@@ -62,8 +62,9 @@ public class AutomationManager : MonoBehaviour
                     else if (CurrencyManager.Instance.GetGold() < seed.cost)
                     {
                         // Sell 1 crop and buy seed
+                        int level = UpgradeManager.Instance.GetUpgradeLevel(seed, UpgradeType.SellPrice) + 1;
                         ItemManager.Instance.RemoveItem(seed.cropName, 1);
-                        CurrencyManager.Instance.AddGold(seed.sellPrice);
+                        CurrencyManager.Instance.AddGold(seed.sellPrice * level);
                         CurrencyManager.Instance.SpendGold(seed.cost);
                         ItemManager.Instance.AddItem(seed.seedName, 1);
                     }

@@ -17,9 +17,9 @@ public class UpgradeData : ScriptableObject
     public int baseCost = 10;
     public float costMultiplier = 1.5f;
 
-    public int yieldPerLevel = 0;
-    public float speedPerLevel = 0f;
-    public float sellPricePerLevel = 0f;
+    public int yieldPerLevel = 1;
+    public float speedPerLevel = 1f;
+    public float sellPricePerLevel = 1.1f;
 }
 
 public class UpgradeManager : MonoBehaviour

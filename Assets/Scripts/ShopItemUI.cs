@@ -46,18 +46,19 @@ public class ShopItemUI : MonoBehaviour
     {
         
         int amount = SellBuyAmountManager.CurrentAmount;
-        if(amount == -1)
+        int bonus = UpgradeManager.Instance.GetBonusValue(seed, UpgradeType.SellPrice) > 0 ? Mathf.RoundToInt(UpgradeManager.Instance.GetBonusValue(seed, UpgradeType.SellPrice)) : 1;
+        if (amount == -1)
         {
             int maxAffordable = CurrencyManager.Instance.GetGold() / seed.cost;     
             buySeedCostText.text = (seed.cost * maxAffordable).ToString() + " gold";
             int seedCount = ItemManager.Instance.GetCount(seed.cropName);
-            sellCropPriceText.text = (seed.sellPrice * seedCount).ToString() + " gold";
+            sellCropPriceText.text = (seed.sellPrice * seedCount * bonus).ToString() + " gold";
 
         }
         else
         {
             buySeedCostText.text = (seed.cost * amount).ToString() + " gold";
-            sellCropPriceText.text = (seed.sellPrice * amount).ToString() + " gold";
+            sellCropPriceText.text = (seed.sellPrice * amount * bonus).ToString() + " gold";
         }
 
     }
@@ -100,8 +101,9 @@ public class ShopItemUI : MonoBehaviour
 
         if (ItemManager.Instance.HasEnough(seed.cropName, amount))
         {
+            int bonus = UpgradeManager.Instance.GetBonusValue(seed, UpgradeType.SellPrice) > 0 ? Mathf.RoundToInt(UpgradeManager.Instance.GetBonusValue(seed, UpgradeType.SellPrice)) : 1;
             ItemManager.Instance.RemoveItem(seed.cropName, amount);
-            CurrencyManager.Instance.AddGold(seed.sellPrice * amount);
+            CurrencyManager.Instance.AddGold(seed.sellPrice * amount * bonus);
             UIManager.Instance.UpdateInventoryUI();
             Debug.Log($"Sold {amount} {seed.cropName} for {seed.sellPrice * amount} gold.");
         }

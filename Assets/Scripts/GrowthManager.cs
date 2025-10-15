@@ -42,7 +42,8 @@ public class GrowthManager : MonoBehaviour
 
         if (isGrowing)
         {
-            growthTimer += Time.deltaTime;
+            float speedBonus = UpgradeManager.Instance.GetBonusValue(seedData, UpgradeType.Speed);
+            growthTimer += Time.deltaTime * (1 + speedBonus);
 
             float remaining = Mathf.Max(0, plantData.totalGrowthTime - growthTimer);
 
